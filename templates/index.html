@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zeus Health Care Hospital</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    /* Navbar Animation */
+    .animated-navbar {
+      animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .navbar {
+      padding: 20px 40px;
+      background: #0d47a1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .navbar-brand, .nav-link {
+      font-size: 1.5rem;
+      color: #fff !important;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #673ab7, #512da8);
+      animation: fadeIn 1s ease-in-out;
+    }
+    .hero-section h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    .hero-section p {
+      font-size: 1.5rem;
+    }
+
+    .form-area {
+      background: #ffffff;
+      color: #333;
+      padding: 40px 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      margin-top: -40px;
+      animation: fadeInUp 1.2s;
+    }
+
+    .form-area h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #4a148c;
+    }
+
+    .btn-predict {
+      background: linear-gradient(to right, #8e24aa, #5e35b1);
+      color: white;
+      font-size: 1.3rem;
+      padding: 15px;
+      border-radius: 15px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-predict:hover {
+      transform: scale(1.05);
+    }
+
+    .tab-btn {
+      background-color: #ffd600;
+      color: #212121;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 12px;
+      padding: 15px 25px;
+      margin: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .tab-btn:hover {
+      transform: rotate(-3deg) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .result-tab {
+      display: none;
+      margin-top: 20px;
+      background: #e8f5e9;
+      padding: 25px;
+      border-radius: 20px;
+      color: #333;
+      font-size: 1.2rem;
+      animation: fadeIn 0.8s;
+    }
+
+    .icon-animated {
+      margin: 0 auto;
+      width: 120px;
+      height: 120px;
+    }
+
+    footer {
+      background: #1a237e;
+      padding: 30px;
+      text-align: center;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 60px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Select2 Fix for Visibility */
+    .select2-container--default .select2-selection--multiple {
+      background: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+      background-color: #8e24aa;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+    .select2-dropdown {
+      background-color: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .tab-btn {
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark animated-navbar">
+    <div class="container-fluid">
+      <img src="{{ url_for('static', filename='image.png') }}" alt="Logo" width="50" height="50" class="rounded-circle me-3">
+      <a class="navbar-brand" href="#">Zeus Hospital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <lord-icon
+        src="https://cdn.lordicon.com/gqzfzudq.json"
+        trigger="loop"
+        colors="primary:#ffffff,secondary:#f9c851"
+        class="icon-animated">
+    </lord-icon>
+    <h1>Zeus Health Care Hospital</h1>
+    <p>AI Diagnosis Engine ⚕️ | CertifyO Open Source Hackathon 🚀</p>
+  </section>
+
+  <div class="container">
+    <div class="form-area">
+      <h2>🔍 Symptom-Based Disease Predictor</h2>
+      <form action="/predict" method="post">
+        <div class="mb-4">
+          <label for="symptoms" class="form-label">Type or select symptoms:</label>
+          <select class="form-control symptom-select" name="symptoms" id="symptoms" multiple="multiple">
+            {% for s in symptoms %}
+              <option value="{{ s }}">{{ s.replace("_", " ").capitalize() }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% if message %}<p class="text-danger">{{ message }}</p>{% endif %}
+        <button type="submit" class="btn btn-predict w-100" onclick="playSound()">🚀 Predict</button>
+      </form>
+
+      {% if predicted_disease %}
+      <div class="text-center mt-5">
+        <button class="tab-btn" onclick="showTab('disease')">🧠 Disease</button>
+        <button class="tab-btn" onclick="showTab('description')">📖 Description</button>
+        <button class="tab-btn" onclick="showTab('precautions')">🛡️ Precautions</button>
+        <button class="tab-btn" onclick="showTab('medications')">💊 Medications</button>
+        <button class="tab-btn" onclick="showTab('diet')">🥗 Diet & Workout</button>
+      </div>
+
+      <div class="result-tab" id="disease">{{ predicted_disease }}</div>
+      <div class="result-tab" id="description">{{ dis_des }}</div>
+      <div class="result-tab" id="precautions"><ul>{% for p in my_precautions %}<li>{{ p }}</li>{% endfor %}</ul></div>
+      <div class="result-tab" id="medications"><ul>{% for m in medications %}<li>{{ m }}</li>{% endfor %}</ul></div>
+      <div class="result-tab" id="diet">
+        <h5>🥗 Diet</h5>
+        <ul>{% for d in my_diet %}<li>{{ d }}</li>{% endfor %}</ul>
+        <h5>🏋️ Workout</h5>
+        <ul>{% for w in workout %}<li>{{ w }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <footer>
+    Zeus Health Care Hospital &copy; 2025 | Made with 💜 for CertifyO Hackathon 🌐
+  </footer>
+
+  <audio id="predictSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_631db9fcfc.mp3"></audio>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.symptom-select').select2({
+        placeholder: "Search symptoms...",
+        allowClear: true,
+        width: '100%'
+      });
+    });
+
+    function showTab(tabId) {
+      const tabs = ['disease', 'description', 'precautions', 'medications', 'diet'];
+      tabs.forEach(t => {
+        document.getElementById(t).style.display = t === tabId ? 'block' : 'none';
+      });
+    }
+
+    function playSound() {
+      document.getElementById('predictSound').play();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Zeus Hospital</title>
+
+  <!-- Bootstrap & AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e1f5fe, #fce4ec);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #512da8;
+      padding: 15px 30px;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffeb3b !important;
+    }
+
+    .blog-header {
+      background: linear-gradient(to right, #8e24aa, #3949ab);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .blog-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      animation: fadeInDown 1s ease;
+    }
+
+    .blog-header p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      animation: fadeInDown 1.2s ease;
+    }
+
+    .blog-section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-card h3 {
+      color: #5e35b1;
+      margin-bottom: 15px;
+    }
+
+    .blog-card p, .blog-card li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 60px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-brand, .nav-link {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Zeus Hospital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="blog-header">
+    <div class="container">
+      <h1>Open Source with Purpose</h1>
+      <p>A journey through innovation, AI, and the CertifyO Hackathon</p>
+    </div>
+  </div>
+
+  <!-- Blog Section -->
+  <div class="blog-section">
+    <div class="blog-card" data-aos="fade-up">
+      <h2 class="text-center">Revolutionizing Healthcare with Zeus Hospital</h2>
+      <p><strong>By Sarvesh Ganesan</strong> — This platform was proudly developed during the
+        <span style="color:#7b1fa2; font-weight:bold;">CertifyO Open Source Hackathon</span>
+        to bridge the gap between machine learning and real-world healthcare needs.
+      </p>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Inspiration Behind the Project</h3>
+      <p>As a student passionate about AI and healthcare, I saw the need for a tool that allows users to understand potential health issues based on their symptoms. This idea sparked the development of <strong>Zeus Hospital</strong> — an intelligent platform powered by a machine learning model and hosted via Flask.</p>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Challenges We Tackled</h3>
+      <ul>
+        <li>Designing an intuitive interface for non-technical users</li>
+        <li>Training a reliable disease prediction model from scratch</li>
+        <li>Structuring a backend system that returns fast and informative outputs</li>
+        <li>Organizing educational resources like precautions, medicines, diets, and workouts</li>
+      </ul>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>The Tech Stack</h3>
+      <ol>
+        <li><strong>Python & Flask</strong> – for creating an interactive backend</li>
+        <li><strong>scikit-learn</strong> – powering the machine learning predictions</li>
+        <li><strong>Pandas</strong> – for processing and mapping symptom data</li>
+        <li><strong>Bootstrap</strong> – to craft a clean and responsive UI</li>
+      </ol>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>Hackathon Highlights</h3>
+      <p>CertifyO provided a dynamic platform for innovation and open-source spirit. Collaborating with passionate developers and building a fully functional AI system in record time was exhilarating. It was not just about coding — it was about making healthcare smarter and more accessible for all.</p>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="500">
+      <h3>What Makes Zeus Hospital Stand Out?</h3>
+      <ul>
+        <li>Seamless user experience across desktop and mobile devices</li>
+        <li>AI-powered, symptom-based disease prediction</li>
+        <li>Curated, condition-specific health guides</li>
+        <li>Built entirely in the open — with real user needs in mind</li>
+      </ul>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="600">
+      <h3>Final Thoughts</h3>
+      <p>This is just the beginning. Zeus Hospital was developed with the belief that access to smart healthcare tools is a right, not a privilege. I thank CertifyO and the open source community for empowering developers like me to build meaningful solutions.</p>
+      <p>If you're a developer, join us. If you're a user, explore what AI can do for your health journey!</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Made with ❤️ by Sarvesh Ganesan | Zeus Hospital © 2025 | CertifyO Open Source Hackathon</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
